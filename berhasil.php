@@ -2,6 +2,7 @@
 
   include 'koneksi.php';  
 
+  $peserta
 
 ?>
 <!DOCTYPE html>
@@ -33,16 +34,15 @@
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
-
-    <section class="box-formulir">
-        <h2>PENDAFTARAN BERHASIL</h2>
-        
-        <div class="box">
-          <section class="box-formulir">
-            <H4>Kode Pendaftaran Anda adalah <?php echo $_GET['id'] ?></H4>
-            <a href="cetak-bukti.php" class="btn btn-primary"">Cetak Bukti</a>
-          </section>
-        </div>
-
+  <section class="box-formulir">
+    
+    <h2>Pendaftaran Berhasil</h2>  
+    
+    <div>
+      <h4>ID Pendaftaran Anda adalah = <?php echo $_GET['id'] ?></h4>
+      <a href="cetak-bukti.php" class="btn btn-primary">Cetak Bukti</a>
+    </div>
+  </section>
+    
 </body>
 </html>
