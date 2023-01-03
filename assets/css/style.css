@@ -1,5 +1,27 @@
 
 /*--------------------------------------------------------------
+# Form Login Admin
+--------------------------------------------------------------*/
+
+.gradient-custom {
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgb(229, 255, 0), rgb(255, 0, 0), rgb(102, 255, 0))
+  }
+
+/*--------------------------------------------------------------
+# Form Admin
+--------------------------------------------------------------*/
+
+.content{
+  width: 90%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid;
+  margin: 50px auto;
+}
+
+/*--------------------------------------------------------------
 # Form Pendaftaran
 --------------------------------------------------------------*/
 .box{
@@ -13,6 +35,15 @@
 .box-formulir{
   width: 50%;
   margin:100px auto;
+}
+
+.table-data{
+  mrgin-top: 10px;
+  width: 100%;
+}
+
+.table-data tr td:nth:nth-child(1){
+  width: 30%;
 }
 
 .table-form{

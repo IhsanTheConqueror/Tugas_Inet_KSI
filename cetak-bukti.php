@@ -2,6 +2,10 @@
 
   include 'koneksi.php';  
 
+  $peserta = mysqli_query($conn, "SELECT * FROM tb_pendaftaran 
+          WHERE id_pendaftaran = '".$_GET['id']."' ");
+
+  $p = mysqli_fetch_object($peserta);
 
 ?>
 <!DOCTYPE html>
@@ -31,16 +35,68 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script>
+    window.print();
+  </script>
 </head>
 <body>
+  <section class = "box-formulir">
+    <h2 align="center">Bukti Pendaftaran</h2>    
+    <hr>
+      <table class ="table-data">
+        <tr>
+          <td>Periode</td>
+          <td>:</td>
+          <td><?php echo $p->th_ajaran ?></td>
+        </tr>
+        <tr>
+          <td>ID Pendaftaran</td>
+          <td>:</td>
+          <td><?php echo $p->id_pendaftaran ?></td>
+        </tr>
+        <tr>
+          <td>Tanggal Mendaftar</td>
+          <td>:</td>
+          <td><?php echo $p->tgl_daftar ?></td>
+        </tr>
+        <tr>
+          <td>Nama Peserta</td>
+          <td>:</td>
+          <td><?php echo $p->nm_peserta ?></td>
+        </tr>
+        <tr>
+          <td>NRP</td>
+          <td>:</td>
+          <td><?php echo $p->nrp ?></td>
+        </tr>
+        <tr>
+          <td>Tempat, Tanggal Lahir</td>
+          <td>:</td>
+          <td><?php echo $p->tmp_lahir. ', ' .$p->tgl_lahir ?></td>
+        </tr>
+        <tr>
+          <td>Jenis Kelamin</td>
+          <td>:</td>
+          <td><?php echo $p->kelamin ?></td>
+        </tr>
+        <tr>
+          <td>No. HP</td>
+          <td>:</td>
+          <td><?php echo $p->no_hp ?></td>
+        </tr>
+        <tr>
+          <td>Alamat</td>
+          <td>:</td>
+          <td><?php echo $p->alamat_peserta ?></td>
+        </tr>
+        <tr>
+          <td>Alasan Mendaftar UKM Ini</td>
+          <td>:</td>
+          <td><?php echo $p->alasan_daftar ?></td>
+        </tr>
+      </table>
+  </section>
 
-    <section class="box-formulir">
-        <h2>PENDAFTARAN BERHASIL</h2>
-        
-        <div class="box">
-            <H4>Kode Pendaftaran Anda adalah <?php echo $_GET['id'] ?></H4>
-            <a href="cetak-bukti.php" class="btn btn-primary"">Cetak Bukti</a>
-    </section>
 
 </body>
 </html>

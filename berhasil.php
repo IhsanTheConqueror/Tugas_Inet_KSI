@@ -2,8 +2,6 @@
 
   include 'koneksi.php';  
 
-  $peserta
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +38,7 @@
     
     <div>
       <h4>ID Pendaftaran Anda adalah = <?php echo $_GET['id'] ?></h4>
-      <a href="cetak-bukti.php" class="btn btn-primary">Cetak Bukti</a>
+      <a href="cetak-bukti.php?id=<?php echo $_GET['id'] ?>" target="_blank" class="btn btn-primary">Cetak Bukti</a>
     </div>
   </section>
     
