@@ -1,6 +1,10 @@
 <?php
     session_start();
-    include 'koneksi.php';  
+    include 'koneksi.php'; 
+    if($_SESSION['stat_login'] != true){
+      echo '<script>window.location="admin.php"</script>';
+    }
+  
     $peserta = mysqli_query($conn, "SELECT * FROM tb_pendaftaran WHERE id_pendaftaran = '". $_GET['id'] ."' "");
     $p = mysqli_fetch_object($peserta);
 ?>
@@ -61,7 +65,7 @@
         <ul>
           <li><a href="admin.php">Home</a></li>
           <li><a class="nav-link scrollto active" href="data-peserta.php">Data Peserta</a></li>
-          <li><a href="index.html">Keluar</a></li>
+          <li><a href="keluar.php">Keluar</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

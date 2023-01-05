@@ -1,7 +1,9 @@
 <?php
     session_start();
     include 'koneksi.php';  
-   
+   if($_SESSION['stat_login'] != true){
+     echo '<script>window.location="admin.php"</script>';
+   }
 
 ?>
 
@@ -64,7 +66,7 @@
         <ul>
           <li><a class="nav-link scrollto active" href="admin.php">Home</a></li>
           <li><a href="data-peserta.php">Data Peserta</a></li>
-          <li><a href="index.html">Keluar</a></li>
+          <li><a href="keluar.php">Keluar</a></li>
           
             </ul>
           </li>

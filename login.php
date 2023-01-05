@@ -4,8 +4,8 @@
 
   if(isset($_POST['login'])){
     // cek dlu akunnya ada atw kdd di phpmyadmin
-    $cek = mysqli_query($conn, "SELECT * FROM tb_admin WHERE username = '". $_POST['user'] ."'  
-    AND password = '". MD5($_POST['pass']) ."' ");
+    $cek = mysqli_query($conn, "SELECT * FROM tb_admin WHERE username = '". htmlspecialchars($_POST['user']) ."'  
+    AND password = '". MD5(htmlspecialchars ($_POST['pass'])) ."' ");
 
     if(mysqli_num_rows($cek) > 0 ){
       $a = mysqli_fetch_object($cek);
@@ -28,7 +28,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" initial-scale="1">
 
     <title>Login Mode : Admin</title>
-      <meta content="" name="description">
+    <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
@@ -83,6 +83,8 @@
                   <div>
                     <p class="mb-0">Bukan Admin? Pasti anda Anggota Baru.....</p>
                     <p> <a href="daftar.php" class="text-white-50 fw-bold" >Klik Disini untuk Daftar</a> </p>
+                    <p class="mb-0">Atau </p>
+                    <p> <a href="index.html" class="text-white-50 fw-bold" >Kembali ke Home</a> </p>
                   </div>
                   
 
