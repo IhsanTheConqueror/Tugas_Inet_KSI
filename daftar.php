@@ -78,25 +78,17 @@
     </div>
   </section>
 
+  <!-- ======= Header ======= -->
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
-      <div class="d-flex justify-content-between align-items-center">
-        <h2>Form Daftar KSI-SINA</h2>
-      </div>
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
+
+      <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>
+      <h1 class="logo"><p>Daftar Calon Anggota KSI-SINA<span class="warnatitik">.</span></p></h1>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#about">About</a></li>
-              <li><a href="#Pengertian">Pengertian</a></li>
-              <li><a href="#portfolio">Porfolio</a></li>
-              <li><a href="#team">Team</a></li>
-            </ul>
-          </li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="login.php">Mode : Admin</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -147,7 +139,7 @@
                   <td>:</td>
                   <td>
                     <input type="text" name="nama_lengkap" class="input-control">
-                  </td>
+                  </td> 
                 </tr>
                 <tr>
                   <td>NRP</td>
@@ -196,7 +188,7 @@
                   <td></td>
                   <td></td>
                   <td>
-                    <input type="submit" name="submit" class="btn-daftar" value="Daftar Sekarang">
+                    <input type="submit" name="submit" class="btn btn-info" value="Daftar Sekarang">
                   </td>
                 </tr>
               </table>
