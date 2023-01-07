@@ -64,7 +64,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="admin.php">Home</a></li>
+          <li><a class="nav-link scrollto active" href="admin.php">Beranda</a></li>
           <li><a href="data-peserta.php">Data Peserta</a></li>
           <li><a href="keluar.php">Keluar</a></li>
           
@@ -101,18 +101,18 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
-    <div class="footer-top">
+  <div class="footer-top">
       <div class="container">
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>BizLand<span>.</span></h3>
+            <h3>KSI-SINA<span>.</span></h3>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              Jl. Pangeran Hidayatullah, Sungai Jingah,<br>
+              Kec. Banjarmasin Utara, Kota Banjarmasin, <br>
+              Kalimantan Selatan 70122 <br><br>
+              <strong>Phone:</strong> +62 821 5041 0971<br>
+              <strong>Email:</strong> ksisinabjm.site@gmail.com<br>
             </p>
           </div>
 
@@ -125,8 +125,8 @@
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Social Networks</h4>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+            <h4>Jangan lupa</h4>
+            <p>Cek Social Media Kami Di :</p>
             <div class="social-links mt-3">
               <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
               <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>

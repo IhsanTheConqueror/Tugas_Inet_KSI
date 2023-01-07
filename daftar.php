@@ -1,37 +1,38 @@
 <?php
+
   include 'koneksi.php';  
 
   if(isset($_POST['submit'])){
 
-    $getMaxId =  mysqli_query($conn, "SELECT MAX(RIGHT(id_anggota, 5)) AS id FROM daftar_ukm");
+    $getMaxId =  mysqli_query($conn, "SELECT MAX(RIGHT(id_pendaftaran, 5)) AS id FROM tb_pendaftaran");
     $d = mysqli_fetch_object($getMaxId);
     $generateId = 'P'.date('Y').sprintf("%05s", $d->id + 1);
     echo $generateId;
-   
-    // proses insert
-    $insert = mysqli_query($conn, "INSERT INTO daftar_ukm VALUES (
-      
-    '".$generateId."'
-    '".$_POST['tgl_daftar']."',
-    '".$_POST['nama_lengkap']."',
-    '".$_POST['nrp']."',
-    '".$_POST['jekel']."',
-    '".$_POST['tgl_lhr']."',
-    '".$_POST['no_hp']."',
-    '".$_POST['alamat_sekarang']."',
-    '".$_POST['alasan_ikut']."',
-    '".$_POST['periode_tahun']."'
 
-    )");
+    $insert = mysqli_query($conn, "INSERT INTO tb_pendaftaran VALUES (
+      '".$generateId."',
+      '".date('Y-m-d')."',
+      '".$_POST['th_ajaran']."',
+      '".$_POST['nm_peserta']."',
+      '".$_POST['nrp']."',
+      '".$_POST['tmp_lahir']."',
+      '".$_POST['tgl_lahir']."',
+      '".$_POST['kelamin']."',
+      '".$_POST['no_hp']."',
+      '".$_POST['alamat_peserta']."',
+      '".$_POST['alasan_ikut']."'
+   )");
 
       if($insert){
-        echo 'sip';
+        echo '<script>window.location="berhasil.php?id='.$generateId.'"</script>';
       }else{
-        echo 'Huft' .mysqli_error($conn);
+       echo 'huft ' .mysqli_error($conn);
       }
 
   }
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,17 +79,25 @@
     </div>
   </section>
 
-  <!-- ======= Header ======= -->
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>
-      <h1 class="logo"><p>Daftar Calon Anggota KSI-SINA<span class="warnatitik">.</span></p></h1>
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Form Daftar KSI-SINA</h2>
+      </div>
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="login.php">Mode : Admin</a></li>
+          <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#Pengertian">Pengertian</a></li>
+              <li><a href="#portfolio">Porfolio</a></li>
+              <li><a href="#team">Team</a></li>
+            </ul>
+          </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -104,7 +113,7 @@
       <div class="container">
         <!--    Ini bagian Box nya START    -->
         <section class="box-formulir">
-  
+
           <h2 align="center">Form Pendaftaran Online UKM KSI-SINA</h2>
           <hr color="gol">
           <!--    Ini bagian Form nya START    -->
@@ -112,14 +121,14 @@
 
             <div class="box">
               <table border="0" class="table-form">
-                <td>
-                  <tr>Periode Tahun</tr>
-                  <tr>:</tr>
-                  <tr>
-                    <input type="text" name="periode_tahun" class="input-control"
+                <tr>
+                  <td>Periode Tahun</td>
+                  <td>:</td>
+                  <td>
+                    <input type="text" name="th_ajaran" class="input-control"
                     value="2023/2024" readonly>
-                  </tr>
-                </td>
+                  </td>
+                </tr>
               </table>
             </div>
 
@@ -127,19 +136,12 @@
 
             <div class="box">           
               <table border="0" class="table-form">
-              <tr>
-                  <td>Tanggal Daftar</td>
-                  <td>:</td>
-                  <td>
-                    <input type="text" name="tgl_daftar" class="input-control">
-                  </td>
-                </tr>
                 <tr>
                   <td>Nama Lengkap</td>
                   <td>:</td>
                   <td>
-                    <input type="text" name="nama_lengkap" class="input-control">
-                  </td> 
+                    <input type="text" name="nm_peserta" class="input-control">
+                  </td>
                 </tr>
                 <tr>
                   <td>NRP</td>
@@ -149,19 +151,27 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>Jenis Kelamin</td>
+                  <td>Tempat Lahir</td>
                   <td>:</td>
                   <td>
-                    <input type="radio" name="jekel" class="input-control" value="Laki-laki">Laki-laki
-                    &nbsp;&nbsp;&nbsp; <!--memberi jarak -->
-                    <input type="radio" name="jekel" class="input-control" value="Perempuan">Perempuan
+                    <input type="text" name="tmp_lahir" class="input-control">
+                  </td>
                 </tr>
                 <tr>
                   <td>Tanggal Lahir</td>
                   <td>:</td>
                   <td>
-                    <input type="text" name="tgl_lhr" class="input-control">
+                    <input type="date" name="tgl_lahir" class="input-control">
                   </td>
+                </tr>
+                <tr>
+                  <td>Jenis Kelamin</td>
+                  <td>:</td>
+                  <td>
+                    <select name="kelamin">
+                      <option value="Laki-laki">Laki-laki</option>
+                      <option value="Perempuan">Perempuan</option>
+                    </select>
                 </tr>
                 <tr>
                   <td>No. Hp</td>
@@ -171,10 +181,10 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>Alamat Sekarang</td>
+                  <td>Alamat Peserta</td>
                   <td>:</td>
                   <td>
-                    <textarea class="input-control" name="alamat_sekarang" id="" cols="30" rows="3"></textarea>
+                    <textarea class="input-control" name="alamat_peserta" id="" cols="30" rows="3"></textarea>
                   </td>
                 </tr>
                 <tr>
@@ -188,10 +198,14 @@
                   <td></td>
                   <td></td>
                   <td>
-                    <input type="submit" name="submit" class="btn btn-info" value="Daftar Sekarang">
+                    <button type="submit" class="btn btn-primary btn-block" name="submit">Daftar</button>
+                    <div class="form-footer mt-2">
+                      <p> Sudah punya account? <a href="#">Login</a></p>
+                    </div>
                   </td>
                 </tr>
               </table>
+
             </div>
 
           </form>
@@ -222,11 +236,11 @@
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            
+
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            
+
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
