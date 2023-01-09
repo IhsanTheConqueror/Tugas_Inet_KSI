@@ -1,0 +1,106 @@
+if(isset($_POST['submit'])){
+      $insert = mysqli_query($conn, "INSERT INTO tb_altif VALUES (
+        '".$_POST['nrp']."',
+        '".$_POST['nama']."',
+        '".$_POST['tgl_lahir']."',
+        '".$_POST['angkatan']."',
+        '".$_POST['jekel']."',
+        '".$_POST['jabatan']."',
+        '".$_POST['status']."'
+     )");
+  
+    }
+
+
+
+
+
+
+
+    <!-- Start #main -->
+  <main id="main" data-aos="fade-up">
+
+    <section class="inner-page">
+      <div class="container">
+        <!--    Ini bagian Box nya START    -->
+        <section class="box-formulir">
+
+          <h2 align="center">INPUT / EDIT DATA ANGGOTA</h2>
+          <hr color="gol">
+          <!--    Ini bagian Form nya START    -->
+          <form action="" method="post">
+
+            <div class="box">           
+              <table border="0" class="table-form">
+                <tr>
+                  <td>NRP</td>
+                  <td>:</td>
+                  <td>
+                    <input type="text" name="nrp" class="input-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Nama Lengkap</td>
+                  <td>:</td>
+                  <td>
+                    <input type="text" name="nama" class="input-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Tanggal Lahir</td>
+                  <td>:</td>
+                  <td>
+                    <input type="date" name="tgl_lahir" class="input-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Angkatan</td>
+                  <td>:</td>
+                  <td>
+                    <input type="text" name="angkatan" class="input-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jenis Kelamin</td>
+                  <td>:</td>
+                  <td>
+                    <select name="jekel">
+                      <option value="Laki-laki">Laki-laki</option>
+                      <option value="Perempuan">Perempuan</option>
+                    </select>
+                </tr>
+                <tr>
+                  <td>Jabatan</td>
+                  <td>:</td>
+                  <td>
+                    <input type="text" name="jabatan" class="input-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Status Keanggotaan</td>
+                  <td>:</td>
+                  <td>
+                    <select name="status">
+                      <option value="Aktif">Aktif</option>
+                      <option value="Alumni">Alumni</option>
+                    </select>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button type="submit" class="btn btn-dark" name="submit">Simpan / Tambahkan</button>
+                  </td>
+                </tr>
+              </table>
+
+            </div>
+
+          </form>
+          <!--    Ini bagian Form nya END    -->
+        </section>
+
+      </div>
+    </section>
+
+

@@ -4,10 +4,11 @@
     if($_SESSION['stat_login'] != true){
       echo '<script>window.location="admin.php"</script>';
     }
-  
-    $peserta = mysqli_query($conn, "SELECT * FROM tb_pendaftaran WHERE id_pendaftaran = '". $_GET['id'] ."' "");
+    $peserta = mysqli_query($conn, "SELECT * FROM tb_pendaftaran WHERE id_pendaftaran = '". $_GET['id'] ."' ");
     $p = mysqli_fetch_object($peserta);
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +16,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport" initial-scale="1">
-  <title>Mode : Admin - Data Peserta</title>
+  <title>Mode : Admin - Data Peserta : Detail</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -63,9 +64,14 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="admin.php">Home</a></li>
-          <li><a class="nav-link scrollto active" href="data-peserta.php">Data Peserta</a></li>
-          <li><a href="keluar.php">Keluar</a></li>
+          <li><a class="nav-link scrollto" href="admin.php">Beranda</a></li>          
+          <li class="dropdown"><a href="#" class="nav-link scrollto active"><span>Data</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+                <li><a href="data-peserta.php">Peserta</a></li>
+                <li><a href="data-anggota.php">Anggota</a></li>
+            </ul>
+          </li>
+          <li><a href="keluar.php" class="nav-link scrollto">Keluar</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -80,43 +86,61 @@
     <section class="inner-page">
       <div class="container">
         <!--    Ini bagian Box nya START    -->
-         <h2>DETAIL DATA PESERTA</h2>
-            <div class="box">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Tanggal Masuk</th>
-                            <th>ID Pendaftaran</th>
-                            <th>Nama Peserta</th>
-                            <th>NRP</th>
-                            <th>Kelamin</th>
-                            <th>Alamat</th>
-                            <th>Alasan Daftar</th>
-                            <th>ACTION</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php while($row = mysqli_fetch_object($result)): ?>
-                        <tr>
-                            <td><?= $row->tgl_daftar ?></td>
-                            <td><?= $row->id_pendaftaran ?></td>
-                            <td><?= $row->nm_peserta ?></td>
-                            <td><?= $row->nrp ?></td>
-                            <td><?= $row->kelamin ?></td>
-                            <td><?= $row->alamat_peserta ?></td>
-                            <td><?= $row->alasan_daftar ?></td>
-                            <td>
-                                <a href="detail-peserta.php?id=<?php echo $row->id_pendaftaran ?>">Detail</a> || 
-                                <a href="hapus-peserta.php?id=<?php echo $row->id_pendaftaran ?>" onclick="return confirm('YAKIN ?')">Hapus</a>
-                            </td>
-                        </tr>
-                        <?php endwhile ?>
-                    </tbody>
+        <h2 align="center">DETAIL DATA PESERTA</h2>    
+              <hr>
+                <table class ="table-data">
+                  <tr>
+                    <td>Periode</td>
+                    <td>:</td>
+                    <td><?php echo $p->th_ajaran ?></td>
+                  </tr>
+                  <tr>
+                    <td>ID Pendaftaran</td>
+                    <td>:</td>
+                    <td><?php echo $p->id_pendaftaran ?></td>
+                  </tr>
+                  <tr>
+                    <td>Tanggal Mendaftar</td>
+                    <td>:</td>
+                    <td><?php echo $p->tgl_daftar ?></td>
+                  </tr>
+                  <tr>
+                    <td>Nama Peserta</td>
+                    <td>:</td>
+                    <td><?php echo $p->nm_peserta ?></td>
+                  </tr>
+                  <tr>
+                    <td>NRP</td>
+                    <td>:</td>
+                    <td><?php echo $p->nrp ?></td>
+                  </tr>
+                  <tr>
+                    <td>Tempat, Tanggal Lahir</td>
+                    <td>:</td>
+                    <td><?php echo $p->tmp_lahir. ', ' .$p->tgl_lahir ?></td>
+                  </tr>
+                  <tr>
+                    <td>Jenis Kelamin</td>
+                    <td>:</td>
+                    <td><?php echo $p->kelamin ?></td>
+                  </tr>
+                  <tr>
+                    <td>No. HP</td>
+                    <td>:</td>
+                    <td><?php echo $p->no_hp ?></td>
+                  </tr>
+                  <tr>
+                    <td>Alamat</td>
+                    <td>:</td>
+                    <td><?php echo $p->alamat_peserta ?></td>
+                  </tr>
+                  <tr>
+                    <td>Alasan Mendaftar UKM Ini</td>
+                    <td>:</td>
+                    <td><?php echo $p->alasan_daftar ?></td>
+                  </tr>
                 </table>
-            </div>     
-          <!--    Ini bagian Form nya END    -->
-        </section>
+      </section>
 
       </div>
     </section>
@@ -126,72 +150,72 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
+<div class="footer-top">
+    <div class="container">
+      <div class="row">
 
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>BizLand<span>.</span></h3>
-            <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
-            </p>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Social Networks</h4>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
-          </div>
-
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h3>KSI-SINA<span>.</span></h3>
+          <p>
+            Jl. Pangeran Hidayatullah, Sungai Jingah,<br>
+            Kec. Banjarmasin Utara, Kota Banjarmasin, <br>
+            Kalimantan Selatan 70122 <br><br>
+            <strong>Phone:</strong> +62 821 5041 0971<br>
+            <strong>Email:</strong> ksisinabjm.site@gmail.com<br>
+          </p>
         </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Jangan lupa</h4>
+          <p>Cek Social Media Kami Di :</p>
+          <div class="social-links mt-3">
+            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          </div>
+        </div>
+
       </div>
     </div>
+  </div>
 
-    <div class="container py-4">
-      <div class="copyright">
-        &copy; Copyright <strong><span><a href="#https://bootstrapmade.com/">BootstrapMade</a></span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        Edited by Nahdatul Ihsan Hidayatullah
-      </div>
+  <div class="container py-4">
+    <div class="copyright">
+      &copy; Copyright <strong><span><a href="#https://bootstrapmade.com/">BootstrapMade</a></span></strong>. All Rights Reserved
     </div>
-  </footer><!-- End Footer -->
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      Edited by Nahdatul Ihsan Hidayatullah
+    </div>
+  </div>
+</footer><!-- End Footer -->
 
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+<!-- Vendor JS Files -->
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
 
 
 </body>

@@ -2,7 +2,7 @@
     session_start();
     include 'koneksi.php';  
     if($_SESSION['stat_login'] != true){
-      echo '<script>window.location="admin.php"</script>';
+      echo '<script>window.location="data-peserta.php"</script>';
     }
  
     $peserta = mysqli_query($conn, "SELECT * FROM tb_pendaftaran");
@@ -66,9 +66,14 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="admin.php">Beranda</a></li>
-          <li><a class="nav-link scrollto active" href="data-peserta.php">Data Peserta</a></li>
-          <li><a href="keluar.php">Keluar</a></li>
+          <li><a class="nav-link scrollto" href="admin.php">Beranda</a></li>          
+          <li class="dropdown"><a href="#" class="nav-link scrollto active"><span>Data</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+                <li><a href="data-peserta.php">Peserta</a></li>
+                <li><a href="data-anggota.php">Anggota</a></li>
+            </ul>
+          </li>
+          <li><a href="keluar.php" class="nav-link scrollto">Keluar</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -111,8 +116,8 @@
                             <td><?= $row->alamat_peserta ?></td>
                             <td><?= $row->alasan_daftar ?></td>
                             <td>
-                                <a href="detail-peserta.php?id=<?php echo $row->id_pendaftaran ?>">Detail</a> || 
-                                <a href="hapus-peserta.php?id=<?php echo $row->id_pendaftaran ?>" onclick="return confirm('YAKIN ?')">Hapus</a>
+                                <a href="detail-peserta.php?id=<?php echo $row->id_pendaftaran ?>" class="btn btn-info">DETAIL</a> || 
+                                <a href="hapus-peserta.php?id=<?php echo $row->id_pendaftaran ?>" class="btn btn-danger" onclick="return confirm('YAKIN ?')">HAPUS</a>
                             </td>
                         </tr>
                         <?php endwhile ?>

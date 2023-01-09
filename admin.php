@@ -64,12 +64,14 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="admin.php">Beranda</a></li>
-          <li><a href="data-peserta.php">Data Peserta</a></li>
-          <li><a href="keluar.php">Keluar</a></li>
-          
+          <li><a class="nav-link scrollto active" href="admin.php">Beranda</a></li>          
+          <li class="dropdown"><a href="#"><span>Data</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+                <li><a href="data-peserta.php">Peserta</a></li>
+                <li><a href="data-anggota.php">Anggota</a></li>
             </ul>
           </li>
+          <li><a href="keluar.php" class="nav-link scrollto">Keluar</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

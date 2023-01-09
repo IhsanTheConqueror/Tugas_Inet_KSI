@@ -200,7 +200,7 @@
                   <td>
                     <button type="submit" class="btn btn-primary btn-block" name="submit">Daftar</button>
                     <div class="form-footer mt-2">
-                      <p> Sudah punya account? <a href="#">Login</a></p>
+                      <p> Sudah punya account? <a href="login.php">Login</a></p>
                     </div>
                   </td>
                 </tr>
@@ -209,8 +209,8 @@
             </div>
 
           </form>
-          <!--    Ini bagian Form nya END    -->
         </section>
+          <!--    Ini bagian Form nya END    -->
 
       </div>
     </section>
