@@ -1,63 +1,56 @@
 <?php
     session_start();
     include 'koneksi.php';  
-    
-     // ini yang dipecah dulu
-     $host   = "localhost";      // ini url database
-     $user   = "root";           // ini user database
-     $pass   = "";               // ini pass database
-     $db     = "ukm";   // ini nama databasenya
- 
-     $koneksi = new mysqli($host, $user, $pass, $db); // ini perintah bikin koneksinya
-     // $conn = mysqli_connect($host, $user, $pass, $dbname); // ini perintah bikin koneksinya
-    
-     if(!$koneksi){
-         die("Tidak bisa terkoneksi ke database");
-     }
-
     if($_SESSION['stat_login'] != true){
-      echo '<script>window.location="data-anggota.php"</script>';
-    }
-    
-    $nrp          = "";
-    $nama         = "";
-    $tgl_lahir    = "";
-    $angkatan     = "";
-    $jekel        = "";
-    $jabatan      = "";
-    $status       = ""; 
-    $sukses       = "";
-    $error        = "";
-
-    if(isset($_POST['simpan'])){
-        $nrp          = $_POST['nrp'];
-        $nama         = $_POST['nama'];
-        $tgl_lahir    = $_POST['tgl_lahir'];
-        $angkatan     = $_POST['angkatan'];
-        $jekel        = $_POST['jekel'];
-        $jabatan      = $_POST['jabatan'];
-        $status       = $_POST['status'];
-        
-        if($nrp && $nama && $tgl_lahir && $angkatan && $jekel & $jabatan && $status){
-          $sql1 = "INSERT into tb_altif (nrp, nama, tgl_lahir, angkatan, jekel, jabatan, status) 
-                VALUES ('$nrp', '$nama', '$tgl_lahir', '$angkatan', '$jekel', '$jabatan', '$status')";
-          $q1   = mysqli_query($koneksi, $sql1);
-          if($q1){
-            $sukses     = "Berhasil Memasukkan Data";
-          }else{
-            $error      = "Gagal Memasukkan Data";
-          }
-
-        }else{
-          $error = "Silakan Isi Semua Data";
-        }
-
+      echo '<script>window.location="admin.php"</script>';
     }
 
-  $anggota = mysqli_query($conn, "SELECT * FROM tb_altif");
+    $nama_kegiatan = "";
+    $tgl = "";
+    $ket = "";
+
+    if(isset($_GET["edit-id"])){
+      $jadwal_id = mysqli_query($conn, "SELECT * FROM tb_kegiatan WHERE id = " . $_GET["edit-id"]);
+      $a = mysqli_fetch_object($jadwal_id);
+      $nama_kegiatan = $a->nama_kegiatan;
+      $tgl = $a->tgl;
+      $ket = $a->ket;
+    }
+ 
+    if(isset($_POST['submit'])){
+      $insert = mysqli_query($conn, "INSERT INTO tb_kegiatan VALUES (
+        '".$_POST['id']."',
+        '".$_POST['nama_kegiatan']."',
+        '".$_POST['tgl']."',
+        '".$_POST['ket']."'
+     )");
+  
+     if($insert){
+        echo '<script>window.location="jadwal.php"</script>';
+      }else{
+      echo 'Error ' .mysqli_error($conn);
+      }
+
+    }else if(isset($_POST['edit'])){
+      $id = $_POST['id'];
+      $nama_kegiatan = $_POST['nama_kegiatan'];
+      $tgl = $_POST['tgl'];
+      $ket = $_POST['ket'];
+
+      $edit = mysqli_query($conn, "UPDATE tb_kegiatan SET nama_kegiatan = '$nama_kegiatan',
+       tgl = '$tgl', ket = '$ket' WHERE id = $id");
+
+      if($edit){
+        echo '<script>window.location="jadwal.php"</script>';
+      }else{
+      echo 'Error ' .mysqli_error($conn);
+      }
+    }
+
+    $jadwal = mysqli_query($conn, "SELECT * FROM tb_kegiatan");
     
+  
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -66,7 +59,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport" initial-scale="1">
 
-  <title>Mode : Admin - Data Anggota</title>
+  <title>Mode : Admin - Jadwal Kegiatan UKM</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -108,7 +101,7 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
       <div class="d-flex justify-content-between align-items-center">
-        <h2>Form Data Anggota</h2>
+        <h2>Form Jadwal Kegiatan UKM</h2>
       </div>
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
 
@@ -119,6 +112,7 @@
             <ul>
                 <li><a href="data-peserta.php">Peserta</a></li>
                 <li><a href="data-anggota.php">Anggota</a></li>
+                <li><a href="jadwal.php">Jadwal Kegiatan</a></li>
             </ul>
           </li>
           <li><a href="keluar.php" class="nav-link scrollto">Keluar</a></li>
@@ -129,124 +123,81 @@
     </div>
   </header><!-- End Header -->
 
-  
+
 <!-- Start #main -->
-<main id="main" data-aos="fade-up">
+  <main id="main" data-aos="fade-up">
+
     <section class="inner-page">
-  <div class="container">
-  <h2>INPUT / EDIT DATA ANGGOTA</h2>
-  <?php 
-      if($error){
-    ?>
-      <div class="alert alert-danger" role="alert">
-        <?php echo $error ?>
-      </div>
-    <?php
-      }
-    ?>
-    <?php 
-      if($sukses){
-    ?>
-        <div class="alert alert-success" role="alert">
-          <?php echo $sukses ?>
-        </div>
-    <?php
-      }
-    ?>
-    <div class="box">
-    <form action="" method="POST">
-      <div class="form-group row">
-        <label for="nrp" class="col-sm-2 col-form-label">NRP</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" name="nrp" id="nrp" value="<?php echo $nrp ?>">
-        </div>
-      </div>
-      <div class="form-group row">
-          <label for="nama" class="col-sm-2 col-form-label">NAMA</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" name="nama" id="nama" value="<?php echo $nama ?>">
-        </div>
-      </div>
-      <div class="form-group row">
-          <label for="tgl_lahir" class="col-sm-2 col-form-label">tgl_lahir</label>
-        <div class="col-sm-10">
-          <input type="date" class="form-control" name="tgl_lahir" id="tgl_lahir" value="<?php echo $tgl_lahir ?>">
-        </div>
-      </div>
-      <div class="form-group row">
-          <label for="angkatan" class="col-sm-2 col-form-label">angkatan</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" name="angkatan" id="angkatan" value="<?php echo $angkatan ?>">
-        </div>
-      </div>
-      <div class="form-group row">
-          <label for="jekel" class="col-sm-2 col-form-label">jekel</label>
-        <div class="col-sm-10">
-          <select class="form-control" id="jekel">
-            <option value="">--- Pilih Jenis Kelamin ---</option>
-            <option value="Laki-laki" <?php if($jekel == "Laki-laki") echo "selected" ?>>--- Laki-laki ---</option>
-            <option value="Perempuan" <?php if($jekel == "Perempuan") echo "selected" ?>>--- Perempuan ---</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group row">
-          <label for="jabatan" class="col-sm-2 col-form-label">jabatan</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" name="jabatan" id="jabatan" value="<?php echo $nrp ?>">
-        </div>
-      </div>
-      <div class="form-group row">
-          <label for="status" class="col-sm-2 col-form-label">status</label>
-        <div class="col-sm-10">
-          <select class="form-control" name="status" id="status">
-            <option value="">--- Status Keanggotaan ---</option>
-            <option value="Aktif" <?php if($status == "Aktif") echo "selected" ?>>--- Aktif ---</option>
-            <option value="Alumni" <?php if($status == "Alumni") echo "selected" ?>>--- Alumni ---</option>
-          </select>
-        </div>
-      </div>
-    </form>
-  
-      <div class="col-12">
-         <input type="submit" name="simpan" value="Tambahkan ke List" class="btn btn-dark">
-      </div>
-    </div>
-  
+      <div class="container">
+      <section class="box-formulir">
 
-
+        <h2 align="center">Form Input Jadwal Kegiatan UKM KSI-SINA</h2>
+        <hr color="gol">
+        <!--    Ini bagian Form nya START    -->
+        <form action="" method="post">
+        <div class="box">           
+            <table border="0" class="table-form">
+              <tr>
+                <td>Nama Kegiatan</td>
+                <td>:</td>
+                <td>
+                  <input type="text" name="nama_kegiatan" class="input-control" value="<?=$nama_kegiatan?>">
+                </td>
+              </tr>
+              <tr>
+                <td>Akan Dilaksanakan pada</td>
+                <td>:</td>
+                <td>
+                  <input type="date" name="tgl" class="input-control" value="<?=$tgl?>">
+                </td>
+              </tr>
+              <tr>
+                <td>Keterangan / Detail Kegiatan</td>
+                <td>:</td>
+                <td>
+                  <input type="text" name="ket" class="input-control" value="<?=$ket?>">
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>
+                  <input type="hidden" name="id" value="<?=$_GET["edit-id"] ?? ""?>">
+                  <button type="submit" class="btn btn-dark btn-block" name="<?=isset($_GET["edit-id"]) ? "edit" : "submit"?>">Tambahkan / Simpan</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </form>
+      </section>
+        <!--    Ini bagian Form nya END    -->
+      
+      
+  </hr>
   </br>
-  </br>
-    
-
-      <h2>DATA ANGGOTA AKTIF/ALUMNI</h2>
+      
+      <!--    Ini bagian Box nya START    -->
+        <h2>JADWAL KEGIATAN UKM KSI-SINA</h2>
         <div class="box">
             <table class="table">
                 <thead>
                     <tr>
-                        <th>NRP</th>
-                        <th>Nama Anggota</th>
-                        <th>Tanggal Lahir</th>
-                        <th>Angkatan</th>
-                        <th>Kelamin</th>
-                        <th>Jabatan</th>
-                        <th>Status Keanggotaan</th>
+                        <th>Nama Kegiatan</th>
+                        <th>Tanggal Kegiatan</th>
+                        <th>Keterangan / Detail Kegiatan</th>
                         <th>ACTION</th>
 
                     </tr>
                 </thead>
                 <tbody>
-                    <?php while($row = mysqli_fetch_object($anggota)): ?>
+                    <?php while($row = mysqli_fetch_object($jadwal)): ?>
                     <tr>
-                        <td><?= $row->nrp ?></td>
-                        <td><?= $row->nama ?></td>
-                        <td><?= $row->tgl_lahir ?></td>
-                        <td><?= $row->angkatan ?></td>
-                        <td><?= $row->jekel ?></td>
-                        <td><?= $row->jabatan ?></td>
-                        <td><?= $row->status ?></td>
+                        <td><?= $row->nama_kegiatan ?></td>
+                        <td><?= $row->tgl ?></td>
+                        <td><?= $row->ket ?></td>
                         <td>
-                            <a href="detail-peserta.php?id=<?php echo $row->id_pendaftaran ?>">Edit</a> || 
-                            <a href="hapus-peserta.php?id=<?php echo $row->id_pendaftaran ?>" onclick="return confirm('YAKIN ?')">Hapus</a>
+                            <a href="jadwal.php?edit-id=<?php echo $row->id ?>" class="btn btn-success">EDIT</a> || 
+                            <a href="hapus-jadwal.php?id=<?php echo $row->id ?>" class="btn btn-danger" onclick="return confirm('YAKIN ?')">Hapus</a>
                         </td>
                     </tr>
                     <?php endwhile ?>
@@ -260,6 +211,11 @@
 </section>
 
 </main><!-- End #main -->
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">

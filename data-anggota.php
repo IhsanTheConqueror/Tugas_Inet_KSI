@@ -128,6 +128,7 @@
             <ul>
                 <li><a href="data-peserta.php">Peserta</a></li>
                 <li><a href="data-anggota.php">Anggota</a></li>
+                <li><a href="jadwal.php">Jadwal Kegiatan</a></li>
             </ul>
           </li>
           <li><a href="keluar.php" class="nav-link scrollto">Keluar</a></li>

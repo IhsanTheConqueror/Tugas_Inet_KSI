@@ -4,7 +4,6 @@
 
   $peserta = mysqli_query($conn, "SELECT * FROM tb_pendaftaran");
 
-  $p = mysqli_fetch_object($peserta);
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -6,7 +6,7 @@
 .gradient-custom {
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgb(229, 255, 0), rgb(255, 0, 0), rgb(102, 255, 0))
+  background: linear-gradient(to right, rgb(255, 0, 0), rgb(0, 255, 0), rgb(0, 0, 255))
   }
 
 /*--------------------------------------------------------------
@@ -488,7 +488,7 @@ h1,h2,h3,h4,h5,h6 {
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover>a {
-  color: #106eea;
+  color: #fffb00;
 }
 
 .navbar-mobile .getstarted,
@@ -523,7 +523,7 @@ h1,h2,h3,h4,h5,h6 {
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover>a {
-  color: #106eea;
+  color: #fffb00;
 }
 
 .navbar-mobile .dropdown>.dropdown-active {
@@ -651,8 +651,8 @@ section {
   font-weight: 700;
   padding: 8px 20px;
   margin: 0;
-  background: #e7f1fd;
-  color: #106eea;
+  background: #3f3f3f;
+  color: #fffb00;
   display: inline-block;
   text-transform: uppercase;
   border-radius: 50px;
@@ -665,7 +665,7 @@ section {
 }
 
 .section-title h3 span {
-  color: #106eea;
+  color: #fffb00;
 }
 
 .section-title p {
@@ -707,7 +707,7 @@ section {
   font-size: 24px;
   padding: 20px;
   margin-right: 15px;
-  color: #106eea;
+  color: #fffb00;
   border-radius: 50px;
 }
 
@@ -721,6 +721,52 @@ section {
 }
 
 .about .content p:last-child {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# DAFTAR ANGGOTA DAN KEGIAATAN
+--------------------------------------------------------------*/
+.daftar .content h3 {
+  font-weight: 600;
+  font-size: 26px;
+}
+
+.daftar .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.daftar .content ul li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 35px;
+}
+
+.daftar .content ul li:first-child {
+  margin-top: 35px;
+}
+
+.daftar .content ul i {
+  background: rgb(117, 117, 117);
+  box-shadow: 0px 6px 15px rgba(16, 110, 234, 0.12);
+  font-size: 24px;
+  padding: 20px;
+  margin-right: 15px;
+  color: #fffb00;
+  border-radius: 50px;
+}
+
+.daftar .content ul h5 {
+  font-size: 18px;
+  color: #555555;
+}
+
+.daftar .content ul p {
+  font-size: 15px;
+}
+
+.daftar .content p:last-child {
   margin-bottom: 0;
 }
 
@@ -779,11 +825,11 @@ section {
 
 .Pengertian .icon-box:hover h4 a,
 .Pengertian .icon-box:hover .icon i {
-  color: #106eea;
+  color: #fffb00;
 }
 
 .Pengertian .icon-box:hover .icon {
-  border-color: #106eea;
+  border-color: #fffb00;
 }
 
 /*--------------------------------------------------------------
@@ -813,7 +859,7 @@ section {
 
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
-  color: #106eea;
+  color: #fffb00;
 }
 
 .portfolio #portfolio-flters li:last-child {
@@ -860,7 +906,7 @@ section {
 
 .portfolio .portfolio-item .portfolio-info .preview-link:hover,
 .portfolio .portfolio-item .portfolio-info .details-link:hover {
-  color: #106eea;
+  color: #fffb00;
 }
 
 .portfolio .portfolio-item .portfolio-info .details-link {
@@ -915,11 +961,11 @@ section {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #106eea;
+  border: 1px solid #fffb00;
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #106eea;
+  background-color: #fffb00;
 }
 
 .portfolio-details .portfolio-info {
@@ -1098,7 +1144,7 @@ section {
 }
 
 .Fungsi .box ul i {
-  color: #106eea;
+  color: #fffb00;
   font-size: 18px;
   padding-right: 4px;
 }
@@ -1117,7 +1163,7 @@ section {
   z-index: 1;
   font-size: 14px;
   padding: 1px 0 3px 0;
-  background: #106eea;
+  background: #fffb00;
   color: #fff;
 }
 
@@ -1142,7 +1188,7 @@ section {
 .faq .faq-list .question {
   display: block;
   position: relative;
-  font-family: #106eea;
+  font-family: #fffb00;
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;
@@ -1173,7 +1219,7 @@ section {
 }
 
 .faq .faq-list .collapsed:hover {
-  color: #106eea;
+  color: #fffb00;
 }
 
 .faq .faq-list .collapsed .icon-show {
@@ -1198,7 +1244,7 @@ section {
 
 .contact .info-box i {
   font-size: 32px;
-  color: #106eea;
+  color: #fffb00;
   border-radius: 50%;
   padding: 8px;
   border: 2px dotted #b3d1fa;
@@ -1278,7 +1324,7 @@ section {
 
 .contact .php-email-form input:focus,
 .contact .php-email-form textarea:focus {
-  border-color: #106eea;
+  border-color: #fffb00;
 }
 
 .contact .php-email-form input {
@@ -1290,7 +1336,7 @@ section {
 }
 
 .contact .php-email-form button[type=submit] {
-  background: #106eea;
+  background: #fffb00;
   border: 0;
   padding: 10px 30px;
   color: #fff;
@@ -1373,7 +1419,7 @@ section {
   background: none;
   font-size: 16px;
   padding: 0 20px;
-  background: #106eea;
+  background: #fffb00;
   color: #fff;
   transition: 0.3s;
   border-radius: 0 4px 4px 0;
@@ -1402,7 +1448,7 @@ section {
 }
 
 #footer .footer-top .footer-contact h3 span {
-  color: #106eea;
+  color: #fffb00;
 }
 
 #footer .footer-top .footer-contact p {
@@ -1433,7 +1479,7 @@ section {
 
 #footer .footer-top .footer-links ul i {
   padding-right: 2px;
-  color: #106eea;
+  color: #fffb00;
   font-size: 18px;
   line-height: 1;
 }
@@ -1457,13 +1503,13 @@ section {
 
 #footer .footer-top .footer-links ul a:hover {
   text-decoration: none;
-  color: #106eea;
+  color: #fffb00;
 }
 
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #106eea;
+  background: #fffb00;
   color: #fff;
   line-height: 1;
   padding: 8px 0;

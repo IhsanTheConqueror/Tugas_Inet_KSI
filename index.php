@@ -1,3 +1,11 @@
+<?php
+    include 'koneksi.php';
+    $anggota = mysqli_query($conn, "SELECT * FROM tb_altif");
+    $jadwal = mysqli_query($conn, "SELECT * FROM tb_kegiatan");
+?>
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +22,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -48,20 +57,21 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>
+      <a href="index.php" class="logo"><img src="assets/img/logo.png" alt=""></a>
       <h1 class="logo"><p>KSI-SINA<span class="warnatitik">.</span></p></h1>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
+          <li><a class="nav-link scrollto active" href="index.php">Home</a></li>
           <li><a href="login.php">Mode : Admin</a></li>
           <li class="dropdown"><a href="#"><span>Go To</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#about">About</a></li>
-              <li><a href="#Pengertian">Pengertian</a></li>
+            <ul class="nav-link scrollto" >
+              <li><a href="#Pengertian">What is this ?</a></li>
               <li><a href="#portfolio">Porfolio</a></li>
               <li><a href="#team">Team</a></li>
-              <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#footer">Sign Up</a></li>
             </ul>
           </li>
         </ul>
@@ -94,57 +104,61 @@
           <h2>Apa itu KSI-SINA ?</h2>
           <p>KSI-SINA adalah UKM yang bergerak di sektor islamiyah seperti dakwah dan seni keterampilan serta sosial masyarakat sejak diresmikan dari KSI AMIK (22 September 2002) menjadi KSI-SINA pada 7 November 2002.</p>
         </div>
-
+        <hr>
+        <br>
 
         <!--====== Sagan Meandak Nama Kegiatannya+icon box =====-->
 
-
+        <div class="section-title">
+          <h2>What Do We Get ?</h2>
+        </div>
         <div class="row">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-dice-5-fill"></i></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <div class="icon"><i class="bi bi-heart-pulse-fill"></i></div>
+              <h4><a href="">Iman</a></h4>
+              <p>UKM ini bergerak dibidang agama yang mana sebagai pondasi UKM kita sebagai KSI-SINA</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-dice-6-fill"></i></div>
-              <h4><a href="">Sed ut perspiciatis</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+            <div class="icon"><i class="bi bi-book-half"></i></div>
+              <h4><a href="">Ilmu yang Insya Allah bermanfaat</a></h4>
+              <p>Karena UKM ini juga bergerak dibidang ilmu pengetahuan, sudah pasti akan menambah ilmu pengetahuan</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+              <div class="icon"><i class="bi bi-person-circle"></i></div>
+              <h4><a href="">Koneksi yang Bermanfaat</a></h4>
+              <p>secara garis besar, KSI-SINA hanyalah 1 dari sekian banyak UKM Kampus yang berbasis agama islam yang ada dibanjar. 
+                Sehingga semua UKM tersebut dikumpulkan dalam 1 forum bernama "FSLDK"</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-world"></i></div>
-              <h4><a href="">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+              <div class="icon"><i class="bi bi-people-fill"></i></div>
+              <h4><a href="">Teman Baru</a></h4>
+              <p>Semakin banyak teman baru, maka semakin banyak silaturrahmi yang terjalin</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-slideshow"></i></div>
-              <h4><a href="">Dele cardo</a></h4>
-              <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
+              <div class="icon"><i class="bi bi-clipboard-heart-fill"></i></div>
+              <h4><a href="">Kegiatan yang Bermanfaat</a></h4>
+              <p>Dan utamanya, kami melakukan kegiatan rutin tahunan seperti Sahur on the Road, Buka bersama, Study Tour, dll. untuk kegiatan kemahasiswaan, saat ini kami hanya bergerak dibidang maulid habsyi dan tahsin al-qur'an saja.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-arch"></i></div>
-              <h4><a href="">Divera don</a></h4>
-              <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
+              <div class="icon"><i class="bi bi-cup-hot"></i></div>
+              <h4><a href="">Kumpul-kumpul Bareng</a></h4>
+              <p>untuk sharing dan saling berbagi cerita dan pengalaman disaat waktu luang yang bersifat santai</p>
             </div>
           </div>
 
@@ -152,6 +166,35 @@
 
       </div>
     </section><!-- End Pengertian Section -->
+
+    <section id="Pengertian" class="Pengertian">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Our's Activities ?</h2>
+          <hr>
+          <div class="box">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nama Kegiatan</th>
+                        <th>Tanggal Kegiatan</th>
+                        <th>Keterangan / Detail Kegiatan</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while($row = mysqli_fetch_object($jadwal)): ?>
+                    <tr>
+                        <td><?= $row->nama_kegiatan ?></td>
+                        <td><?= $row->tgl ?></td>
+                        <td><?= $row->ket ?></td>
+                    </tr>
+                    <?php endwhile ?>
+                </tbody>
+            </table>
+        </div>  
+        </div>
 
     <!-- ======= Portfolio Section ======= -->
     <!--== Foto kegiatannya ==-->
@@ -167,9 +210,8 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
+              <li data-filter=".filter-app">Akhwat</li>
+              <li data-filter=".filter-card">Ikhwan</li>
             </ul>
           </div>
         </div>
@@ -361,82 +403,6 @@
       </div>
     </section><!-- End Team Section -->
 
-    <!-- ======= Fungsi Section ======= -->
-    <section id="Fungsi" class="Fungsi">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Gratis Tidak Dipungut Biaya</h2>
-          <h3><span>AYO </span>Gabung dan Ikut Kegiatan Kami</h3>
-          <p>Dengan Ikut Kegiatan UKM KSI-SINA, kalian akan mendapat ... </p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6" daaannta-aos="fade-up" data-aos-delay="100">
-            <div class="box">
-              <h3>Free</h3>
-              <h4><sup>$</sup>0<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li class="na">Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
-            <div class="box">
-              <h3>Business</h3>
-              <h4><sup>$</sup>19<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-            <div class="box">
-              <h3>Developer</h3>
-              <h4><sup>$</sup>29<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
-            <div class="box">
-              <span class="advanced">Advanced</span>
-              <h3>Ultimate</h3>
-              <h4><sup>$</sup>49<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-    
-    <!-- End Fungsi Section -->
-
     <!-- About Section -->
     <section id="about" class="about section-bg">
       <div class="container" data-aos="fade-up">
@@ -484,14 +450,58 @@
       </div>
     </section><!-- End About Section -->
 
+    <!-- ALUMNI and AKTIF STRART -->
+    <section id="daftar" class="daftar section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h3>Para <span>Anggota dan Alumni</span> yang Kami Banggakan</h3>
+          <p>tidak lupa pula pada para anggota kami yang masih aktif ,,, atau bahkan yang sudah jadi alumni,,, </p>
+        </div>
+        <div class="row">
+            <div class="box">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th>NRP</th>
+                          <th>Nama Anggota</th>
+                          <th>Tanggal Lahir</th>
+                          <th>Angkatan</th>
+                          <th>Kelamin</th>
+                          <th>Jabatan</th>
+                          <th>Status Keanggotaan</th>
+
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <?php while($row = mysqli_fetch_object($anggota)): ?>
+                      <tr>
+                          <td><?= $row->nrp ?></td>
+                          <td><?= $row->nama ?></td>
+                          <td><?= $row->tgl_lahir ?></td>
+                          <td><?= $row->angkatan ?></td>
+                          <td><?= $row->jekel ?></td>
+                          <td><?= $row->jabatan ?></td>
+                          <td><?= $row->status ?></td>
+                      </tr>
+                      <?php endwhile ?>
+                  </tbody>
+              </table>
+          </div>     
+        <!--    Ini bagian Form nya END    -->
+        </div>
+
+      </div>
+    </section>
+    <!-- ALUMNI and AKTIF END -->
+
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
           <h2>Contact</h2>
-          <h3><span>Contact Us</span></h3>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+          <h3><span>Hubungi</span> Kami</h3>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -524,7 +534,7 @@
         <div class="row" data-aos="fade-up" data-aos-delay="100">
 
           <div class="col-lg-6 ">
-            <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
+            <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15932.777554802047!2d114.6089388!3d-3.3020154!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc87afe8dc44cafa3!2sSTMIK%20Indonesia%20banjarmasin!5e0!3m2!1sid!2sid!4v1673358422082!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
           </div>
 
           <div class="col-lg-6">
