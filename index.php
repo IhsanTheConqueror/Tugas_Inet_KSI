@@ -69,7 +69,6 @@
               <li><a href="#Pengertian">What is this ?</a></li>
               <li><a href="#portfolio">Porfolio</a></li>
               <li><a href="#team">Team</a></li>
-              <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
               <li><a href="#footer">Sign Up</a></li>
             </ul>
@@ -210,8 +209,8 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">Akhwat</li>
-              <li data-filter=".filter-card">Ikhwan</li>
+              <li data-filter=".filter-app">Ikhwan</li>
+              <li data-filter=".filter-card">Akhwat</li>
             </ul>
           </div>
         </div>
@@ -219,95 +218,64 @@
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+            <img src="assets/img/portfolio/IMG20191006141710.jpg" class="img-fluid" alt="">
             <div class="portfolio-info">
-              <h4>App 1</h4>
-              <p>App</p>
-              <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <h4>Studi Tour</h4>
+              <p>KSI-SINA 2019</p>
+              <a href="assets/img/portfolio/IMG20191006141710.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="#l" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+            <img src="assets/img/portfolio/IMG20220924154037.jpg" class="img-fluid" alt="">
             <div class="portfolio-info">
-              <h4>App 2</h4>
-              <p>App</p>
-              <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <h4>PKKMB</h4>
+              <p>KSI-SINA 2022</p>
+              <a href="assets/img/portfolio/IMG20220924154037.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
+              <a href="#l" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+            <img src="assets/img/portfolio/20221105_113639.jpg" class="img-fluid" alt="">
             <div class="portfolio-info">
-              <h4>Card 2</h4>
-              <p>Card</p>
-              <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 2</h4>
-              <p>Web</p>
-              <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <h4>Study Tour Akhwat</h4>
+              <p>KSI-SINA 2022</p>
+              <a href="assets/img/portfolio/20221105_113639.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
+              <a href="#l" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+            <img src="assets/img/portfolio/IMG20200315104636.jpg" class="img-fluid" alt="">
             <div class="portfolio-info">
-              <h4>App 3</h4>
-              <p>App</p>
-              <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <h4>Foto Bersama Para Ikhwan</h4>
+              <p>KSI-SINA 2020</p>
+              <a href="assets/img/portfolio/IMG20200315104636.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
+              <a href="#l" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+            <img src="assets/img/portfolio/IMG20191004163744.jpg" class="img-fluid" alt="">
             <div class="portfolio-info">
-              <h4>Card 1</h4>
-              <p>Card</p>
-              <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <h4>Ahlan Wasahlan Akhwat</h4>
+              <p>KSI-SINA 2019</p>
+              <a href="assets/img/portfolio/IMG20191004163744.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
+              <a href="#l" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <img src="assets/img/WhatsApp Image 2022-10-06 at 13.11.54.jpeg" class="img-fluid" alt="">
             <div class="portfolio-info">
-              <h4>Card 3</h4>
-              <p>Card</p>
-              <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <h4>Rapat Pra-Ahlan Wasahlan 2022</h4>
+              <p>KSI-SINA 2022</p>
+              <a href="assets/img/WhatsApp Image 2022-10-06 at 13.11.54.jpeg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
+              <a href="#l" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
         </div>
 
       </div>
@@ -320,8 +288,7 @@
 
         <div class="section-title">
           <h2>Team</h2>
-          <h3>Our Hardworking <span>Team</span></h3>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+          <h3>Para Petinggi <span>KSI-SINA</span> 2022/2023</h3>
         </div>
 
         <div class="row">
@@ -402,53 +369,6 @@
 
       </div>
     </section><!-- End Team Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>About</h2>
-          <h3>Find Out More <span>About Us</span></h3>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-5 col-md-6" data-aos="fade-right" data-aos-delay="100">
-            <img src="assets/img/WhatsApp Image 2022-10-06 at 13.11.54.jpeg" class="img-fluid" alt="">
-          </div>
-          <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0" data-aos="fade-up" data-aos-delay="100">
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
-            <ul>
-              <li>
-                <i class="bx bx-store-alt"></i>
-                <div>
-                  <h5>Ullamco laboris nisi ut aliquip consequat</h5>
-                  <p>Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade</p>
-                </div>
-              </li>
-              <li>
-                <i class="bx bx-images"></i>
-                <div>
-                  <h5>Magnam soluta odio exercitationem reprehenderi</h5>
-                  <p>Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata redi</p>
-                </div>
-              </li>
-            </ul>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Section -->
 
     <!-- ALUMNI and AKTIF STRART -->
     <section id="daftar" class="daftar section-bg">
